@@ -1,0 +1,10 @@
+@import "tailwindcss";
+/* Tailwind v4 ka official aur clean dark mode variant setup */
+@variant dark (&:where(.dark, .dark *));
+
+/* Agar aap global colors ya smooth transitions chahte hain */
+@layer base {
+  body {
+    @apply bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-all duration-900;
+  }
+}
