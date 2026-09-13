@@ -7,7 +7,7 @@ import 'swiper/css/pagination';
 import { Autoplay, Pagination } from 'swiper/modules';
 function SuppFormats() {
   return (
-    <div className='pt-20 pb-10 px-5 bg-gray-50'>
+    <div className='pt-20 pb-10 px-5 lg:px-15 xl:pt-20 xl:pb-30 bg-gray-50 dark:bg-slate-900'>
         <div className='text-center px-5'>
             <h2 className='text-[52px]/15 mb-3 font-bold'>Supported Formats</h2>
             <span className='font-medium text-[20px] text-slate-600'>Convert between 50+ file types</span>
@@ -22,9 +22,9 @@ function SuppFormats() {
             }} className="mySwiper grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-6 gap-5 mt-15">
                 {Formats.map((i) => (
                     <SwiperSlide key={i.id}>
-                        <div  className='border a-full flex bg-white justify-center items-center border-slate-300 hover:shadow-lg transition-all duration-200 group rounded-lg px-5 py-5 flex-col gap-5 cursor-pointer'>
-                            <i.icon size={40}/>
-                            <h3 className='font-medium text-gray-600'>{i.name}</h3>
+                        <div  className='border a-full flex bg-white dark:bg-slate-800 dark:border-slate-500 justify-center items-center border-slate-300 hover:shadow-lg transition-all duration-200 group rounded-lg px-5 py-8 flex-col gap-5 cursor-pointer'>
+                            <i.icon className='dark:text-slate-400 xl:size-12' size={40}/>
+                            <h3 className='font-medium text-gray-600 dark:text-gray-300'>{i.name}</h3>
                         </div>
                     </SwiperSlide>  
                 ))}
