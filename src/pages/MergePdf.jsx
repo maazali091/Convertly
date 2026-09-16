@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import { PDFDocument } from "pdf-lib";
 import { supabase } from "../lib/supabase";
+import LimitReached from "../components/LimitReached";
 
 function MergePdf() {
   const inputRef = useRef(null);
@@ -558,10 +559,14 @@ function MergePdf() {
 
           {/* Error */}
           {error && (
-            <div className="mt-4 flex items-start gap-2 rounded-xl border border-red-200 bg-red-50 px-3.5 py-3 text-sm text-red-600 dark:border-red-900/50 dark:bg-red-950/30 dark:text-red-400">
-              <AlertTriangle size={18} className="mt-0.5 shrink-0" />
-              <span>{error}</span>
-            </div>
+            error.includes("daily conversion limit") ? (
+              <LimitReached message={error} />
+            ) : (
+              <div className="mt-4 flex items-start gap-2 rounded-xl border border-red-200 bg-red-50 px-3 py-2.5 text-sm text-red-600 dark:border-red-900/50 dark:bg-red-950/30 dark:text-red-400">
+                <AlertTriangle size={18} className="mt-0.5 shrink-0" />
+                <span>{error}</span>
+              </div>
+            )
           )}
         </div>
 

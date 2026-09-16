@@ -136,10 +136,16 @@ function Navbar({ isDark, setIsDark, user, onLogout, authLoading }) {
                     <div className="px-2 py-2">
                       <div className="mb-1 flex items-center justify-between rounded-lg px-3 py-2 text-sm text-slate-600 dark:text-slate-300">
                         <span>Plan</span>
-                        <span className="rounded-full bg-indigo-50 px-2.5 py-1 text-xs font-semibold text-indigo-600 dark:bg-indigo-950/40 dark:text-indigo-400">
-                          Free
+                        <span className={`rounded-full px-2.5 py-1 text-xs font-semibold ${
+                          user?.user_metadata?.plan === "pro"
+                            ? "bg-amber-50 text-amber-600 dark:bg-amber-950/40 dark:text-amber-400"
+                            : "bg-indigo-50 text-indigo-600 dark:bg-indigo-950/40 dark:text-indigo-400"
+                        }`}>
+                          {user?.user_metadata?.plan === "pro" ? "Pro" : "Free"}
                         </span>
+
                       </div>
+                      <Link to='/dashboard' className='mb-1 flex items-center justify-between rounded-lg px-3 py-2 text-sm text-slate-600 dark:text-slate-300'>Dashboard</Link>
                       <button type="button" onClick={handleLogout} className="flex w-full items-center gap-2 rounded-lg px-3 py-2.5 text-left text-sm font-medium text-red-600 transition hover:bg-red-50 dark:hover:bg-red-950/30">
                         <LogOut size={17} />
                         Log out

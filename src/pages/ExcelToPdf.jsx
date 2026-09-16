@@ -13,6 +13,7 @@ import {
   Trash2,
 } from "lucide-react";
 import { supabase } from "../lib/supabase";
+import LimitReached from "../components/LimitReached";
 
 function ExcelToPdf() {
   const [file, setFile] = useState(null);
@@ -675,18 +676,15 @@ function ExcelToPdf() {
           {/* ───────────────── ERROR ───────────────── */}
 
           {error && (
-            <div className="mt-4 flex items-start gap-2 rounded-xl border border-red-200 dark:border-red-900/60 bg-red-50 dark:bg-red-950/25 px-4 py-3 text-sm text-red-600 dark:text-red-400">
-
-              <AlertTriangle
-                size={18}
-                className="mt-0.5 shrink-0"
-              />
-
-              <span>{error}</span>
-
-            </div>
+            error.includes("daily conversion limit") ? (
+              <LimitReached message={error} />
+            ) : (
+              <div className="mt-4 flex items-start gap-2 rounded-xl border border-red-200 bg-red-50 px-3 py-2.5 text-sm text-red-600 dark:border-red-900/50 dark:bg-red-950/30 dark:text-red-400">
+                <AlertTriangle size={18} className="mt-0.5 shrink-0" />
+                <span>{error}</span>
+              </div>
+            )
           )}
-
           {/* ───────────────── SUCCESS ───────────────── */}
 
           {success && (

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Footer() {
   return (
@@ -39,10 +40,10 @@ function Footer() {
             <div className='flex flex-col gap-3'>
                 <h2 className='font-bold text-xl'>Legal</h2>
                 <ul className='text-lg flex flex-col font-medium text-gray-500 dark:text-gray-400 gap-1.5'>
-                    <li>Privacy</li>
-                    <li>Terms</li>
+                    <li><Link to="/privacy">Privacy</Link></li>
+                    <li><Link to="/terms">Terms</Link></li>
+                    <li><Link to="/refund">Refund</Link></li>
                     <li>Security</li>
-                    <li>Compilance</li>
                 </ul>
             </div>
         </div>

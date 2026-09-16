@@ -21,6 +21,10 @@ import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import ProtectedRoutes from './components/ProtectedRoutes';
 import PricingPage from './pages/PricingPage';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import RefundPolicy from './pages/RefundPolicy';
+import TermsOfService from './pages/TermsOfService';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   const [isDark, setIsDark] = useState(false);
@@ -87,6 +91,7 @@ function App() {
 
   return (
     <>
+      <ScrollToTop />
       <Navbar isDark={isDark} setIsDark={setIsDark} user={user} onLogout={handleLogout} authLoading={authLoading} />
       <Routes>
         <Route path='/' element={<Home />} />
@@ -108,6 +113,9 @@ function App() {
           </ProtectedRoutes>
         } />
         <Route path='/pricing' element={<PricingPage />} />
+        <Route path='/privacy' element={<PrivacyPolicy />} />
+        <Route path='/terms' element={<TermsOfService />} />
+        <Route path='/refund' element={<RefundPolicy />} />
       </Routes>
       <Footer />
     </>

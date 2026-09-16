@@ -1,5 +1,6 @@
 import { CheckCircle2, Check, Crown } from 'lucide-react'
 import React from 'react'
+import UpgradeButton from './UpgradeButton';
 
 function Pricing() {
     return (
@@ -58,9 +59,7 @@ function Pricing() {
                                 /month
                             </span>
                         </div>
-                        <button type="button" className="mt-8 w-full rounded-xl bg-blue-600 px-5 py-3.5 text-base font-semibold text-white shadow-md shadow-blue-200 transition hover:bg-blue-700 dark:shadow-none">
-                            Start Free Trial
-                        </button>
+                        <UpgradeButton className="mt-8 w-full" />
                         <div className="mt-9 space-y-5">
                             <Feature text="500MB per file" color="blue" />
                             <Feature text="Unlimited conversions" color="blue" />
